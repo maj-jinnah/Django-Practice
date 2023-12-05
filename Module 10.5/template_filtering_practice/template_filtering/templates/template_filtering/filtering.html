@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>This is Filtering Page!</h1>
+        <h3><a href="/">Home</a></h3>
+        <h3><a href="/template_filtering/">App</a></h3>
+        <h3><a href="/template_filtering/about/">About</a></h3>
+        <h3><a href="/template_filtering/contract/">Contract</a></h3>
+        <h3>
+            <a href="/template_filtering/filtering/">Filtering Practice Page</a>
+        </h3>
+
+        <p>Name : {{name}}</p>
+
+        <!-- conditional steatment -->
+        {% if age >= 18 %}
+        <h4>You will get NID</h4>
+        {% elif age <= 19 and age >= 10 %}
+        <h4>You can't get NID</h4>
+        {% else %}
+        <h4>You are a child!</h4>
+        {%endif%}
+
+        <!-- For loop -->
+        {% for i in courses %}
+        <h4>Subject Name: {{i.name}}</h4>
+        {% endfor %}
+        
+        <h3>Join Metheod: {{ list | join:" - " }}</h3>
+        <h3>Date Time: {{ date | date:"D d M Y" }}</h3>
+        <h3>Default value: {{ nothing | default:"an empty string" }}</h3>
+        <h3>Add value: {{ age | add:5}}</h3>
+        <h3>Capfirst Filter: {{lname | capfirst}}</h3>
+        <h3>Cut Filter: {{fname | cut:" "}}</h3>
+        <h3>Dictsort Filter: {{courses | dictsort:"fee"}}</h3>
+        <h3>Escape: {{title | escape}}</h3>
+        <h3>First Filter: {{list | first}}</h3>
+        <h3>Last Filter: {{list | last}}</h3>
+        <h3>Length Filter: {{list | length}}</h3>
+        <h3>Linenumbers Filter: {{linenumbers | linenumbers}}</h3>
+        <h3>Lower Filter: {{fname | lower}}</h3>
+        <h3>Upper Filter: {{fname | upper}}</h3>
+        <h3>Random  Filter: {{list | random}}</h3>
+        <h3>Slice   Filter: {{list | slice:2}}</h3>
+
+
+    </body>
+</html>
