@@ -1,0 +1,57 @@
+{% extends "base.html" %} {% block content %}
+<h1 class="my-4 d-flex justify-content-center">
+    Hey there! Welcome to the Home page.
+</h1>
+<div class="w-75 m-auto">
+    <table class="table table-hover table-bordered mt-5">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Musician Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Album Rating</th>
+                <th scope="col">Instrument Type</th>
+                <th scope="col">Album Name</th>
+                <th scope="col">Release Date</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for dt in data %}
+            <tr>
+                <td>{{dt.musician.id}}</td>
+                <td>
+                    <a
+                        class="text-decoration-none text-black"
+                        href="{% url 'edit_musician' dt.musician.id %}"
+                    >
+                        {{ dt.musician.first_name }} {{ dt.musician.last_name }}
+                    </a>
+                </td>
+                <td>{{dt.musician.email}}</td>
+                <td>{{dt.album_ratings}}</td>
+                <td>{{dt.musician.instrument_type}}</td>
+                <td>{{dt.album_name}}</td>
+                <td>{{dt.release_date}}</td>
+
+                <td>
+                    <div class='d-flex justify-content-center gap-3'>
+                        <a
+                            href="{% url 'edit_album' dt.id %}"
+                            class="btn btn-warning text-white btn-sm"
+                            >EDIT</a
+                        >
+                        <a
+                            href="{% url 'delete_album' dt.id %}"
+                            class="btn btn-danger btn-sm"
+                            >DELETE</a
+                        >
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock content %}
