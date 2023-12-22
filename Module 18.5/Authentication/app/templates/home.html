@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="text-center">
+
+    {% if messages %}
+    {% for m in messages %}
+        <h2 class="text-success mt-5">{{m}}</h2>
+    {% endfor %}
+    {% endif %}
+
+    <h1 class='my-5'>Welcome, to my Home Page!</h1>
+    <a class="btn btn-primary" href="{% url 'login' %}">Login before you start<a/>
+</div>
+{% endblock content %}
