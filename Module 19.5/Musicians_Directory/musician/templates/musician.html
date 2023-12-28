@@ -1,0 +1,11 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<form class='w-50 m-auto' method="post">
+  {% csrf_token %}
+  <h1 class='my-5 text-center'>You can create a musician here!</h1>
+  {{form | crispy}}
+
+  <button class="btn btn-warning">Submit</button>
+</form>
+
+{% endblock %}
